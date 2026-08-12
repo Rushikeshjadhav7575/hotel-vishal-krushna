@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Kitchen Dashboard | Hotel Vishal & Krushna
+    </title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            background: #f3f4f6;
+
+            color: #111827;
+
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+
+            background: #111827;
+
+            color: white;
+
+            padding: 18px 25px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        header h1 {
+
+            font-size: 24px;
+
+        }
+
+
+        .logout-btn {
+
+            border: none;
+
+            background: #dc2626;
+
+            color: white;
+
+            padding: 10px 18px;
+
+            border-radius: 7px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+        }
+
+
+        .logout-btn:hover {
+
+            background: #b91c1c;
+
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+
+            width: 95%;
+
+            max-width: 1200px;
+
+            margin: 25px auto;
+
+        }
+
+
+        .dashboard-title {
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .dashboard-title h2 {
+
+            font-size: 28px;
+
+        }
+
+
+        .dashboard-title p {
+
+            color: #6b7280;
+
+            margin-top: 5px;
+
+        }
+
+
+        /* =========================
+           ORDER GRID
+        ========================= */
+
+        #ordersContainer {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(320px, 1fr)
+                );
+
+            gap: 20px;
+
+        }
+
+
+        /* =========================
+           ORDER CARD
+        ========================= */
+
+        .order-card {
+
+            background: white;
+
+            border-radius: 12px;
+
+            padding: 20px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0,0,0,0.08);
+
+            border-left: 6px solid #f59e0b;
+
+        }
+
+
+        .order-card.preparing {
+
+            border-left-color: #2563eb;
+
+        }
+
+
+        .order-card.completed {
+
+            border-left-color: #16a34a;
+
+        }
+
+
+        .order-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .order-id {
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+        }
+
+
+        .status {
+
+            padding: 6px 10px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+        }
+
+
+        .status.new {
+
+            background: #fef3c7;
+
+            color: #92400e;
+
+        }
+
+
+        .status.preparing {
+
+            background: #dbeafe;
+
+            color: #1d4ed8;
+
+        }
+
+
+        .status.completed {
+
+            background: #dcfce7;
+
+            color: #166534;
+
+        }
+
+
+        /* =========================
+           CUSTOMER DETAILS
+        ========================= */
+
+        .customer-details {
+
+            background: #f9fafb;
+
+            padding: 12px;
+
+            border-radius: 8px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .customer-details p {
+
+            margin-bottom: 6px;
+
+        }
+
+
+        .customer-details p:last-child {
+
+            margin-bottom: 0;
+
+        }
+
+
+        /* =========================
+           FOOD ITEMS
+        ========================= */
+
+        .items-title {
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .food-item {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 10px;
+
+            padding: 9px 0;
+
+            border-bottom:
+                1px solid #e5e7eb;
+
+        }
+
+
+        .food-item:last-child {
+
+            border-bottom: none;
+
+        }
+
+
+        .food-name {
+
+            font-weight: 600;
+
+        }
+
+
+        .food-quantity {
+
+            font-weight: bold;
+
+            color: #d97706;
+
+        }
+
+
+        /* =========================
+           TOTAL
+        ========================= */
+
+        .order-total {
+
+            text-align: right;
+
+            margin-top: 15px;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .action-btn {
+
+            width: 100%;
+
+            border: none;
+
+            padding: 13px;
+
+            border-radius: 8px;
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            margin-top: 15px;
+
+        }
+
+
+        .start-btn {
+
+            background: #2563eb;
+
+        }
+
+
+        .start-btn:hover {
+
+            background: #1d4ed8;
+
+        }
+
+
+        .complete-btn {
+
+            background: #16a34a;
+
+        }
+
+
+        .complete-btn:hover {
+
+            background: #15803d;
+
+        }
+
+
+        .completed-message {
+
+            margin-top: 15px;
+
+            text-align: center;
+
+            padding: 10px;
+
+            background: #dcfce7;
+
+            color: #166534;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+        }
+
+
+        /* =========================
+           EMPTY MESSAGE
+        ========================= */
+
+        .empty-message {
+
+            background: white;
+
+            padding: 40px 20px;
+
+            text-align: center;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0,0,0,0.06);
+
+        }
+
+
+        .empty-message .icon {
+
+            font-size: 50px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .empty-message h3 {
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .empty-message p {
+
+            color: #6b7280;
+
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            header {
+
+                align-items: flex-start;
+
+            }
+
+
+            header h1 {
+
+                font-size: 20px;
+
+            }
+
+
+            .dashboard-title h2 {
+
+                font-size: 23px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <header>
+
+
+        <h1>
+
+            👨‍🍳 Hotel Vishal & Krushna
+
+        </h1>
+
+
+        <button
+            class="logout-btn"
+            onclick="logoutKitchen()">
+
+            Logout
+
+        </button>
+
+
+    </header>
+
+
+
+    <!-- =========================
+         MAIN
+    ========================= -->
+
+    <main>
+
+
+        <div class="dashboard-title">
+
+            <h2>
+                Kitchen Dashboard
+            </h2>
+
+            <p>
+                Manage food orders and update
+                preparation status.
+            </p>
+
+        </div>
+
+
+        <!-- ORDERS -->
+
+        <div id="ordersContainer"></div>
+
+
+    </main>
+
+
+
+    <script>
+
+
+        // =========================================
+        // CHECK KITCHEN LOGIN
+        // =========================================
+
+        if (
+            sessionStorage.getItem(
+                "kitchenLoggedIn"
+            ) !== "true"
+        ) {
+
+            window.location.href =
+                "kitchen-login.html";
+
+        }
+
+
+
+        // =========================================
+        // LOAD ORDERS
+        // =========================================
+
+        function loadKitchenOrders() {
+
+
+            const container =
+                document.getElementById(
+                    "ordersContainer"
+                );
+
+
+            const orders =
+                JSON.parse(
+                    localStorage.getItem(
+                        "orders"
+                    )
+                ) || [];
+
+
+            /*
+             * Kitchen should see:
+             *
+             * 1. New orders
+             * 2. Preparing orders
+             *
+             * Completed orders are hidden.
+             */
+
+
+            const kitchenOrders =
+                orders.filter(order => {
+
+                    const status =
+                        order.kitchenStatus ||
+                        "New";
+
+
+                    return (
+                        status === "New" ||
+                        status === "Preparing"
+                    );
+
+                });
+
+
+            // No orders
+
+            if (
+                kitchenOrders.length === 0
+            ) {
+
+                container.innerHTML = `
+
+                    <div
+                        class="empty-message">
+
+                        <div class="icon">
+                            🍽️
+                        </div>
+
+                        <h3>
+                            No New Orders
+                        </h3>
+
+                        <p>
+                            Waiting for customer orders...
+                        </p>
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+            container.innerHTML = "";
+
+
+            kitchenOrders.forEach(order => {
+
+
+                const realIndex =
+                    orders.indexOf(order);
+
+
+                const status =
+                    order.kitchenStatus ||
+                    "New";
+
+
+                let itemsHTML = "";
+
+
+                if (
+                    order.items &&
+                    Array.isArray(order.items)
+                ) {
+
+                    order.items.forEach(item => {
+
+                        itemsHTML += `
+
+                            <div
+                                class="food-item">
+
+
+                                <span
+                                    class="food-name">
+
+                                    ${item.name || "Food"}
+
+                                </span>
+
+
+                                <span
+                                    class="food-quantity">
+
+                                    × ${item.quantity || 0}
+
+                                </span>
+
+
+                            </div>
+
+                        `;
+
+                    });
+
+                }
+
+
+                const preparingClass =
+                    status === "Preparing"
+                    ? "preparing"
+                    : "";
+
+
+                container.innerHTML += `
+
+                    <div
+                        class="
+                            order-card
+                            ${preparingClass}
+                        ">
+
+
+                        <!-- ORDER HEADER -->
+
+                        <div
+                            class="order-header">
+
+
+                            <div
+                                class="order-id">
+
+                                Order #
+
+                                ${order.orderId || "N/A"}
+
+                            </div>
+
+
+                            <div
+                                class="
+                                    status
+                                    ${
+                                        status === "Preparing"
+                                        ? "preparing"
+                                        : "new"
+                                    }
+                                ">
+
+                                ${
+                                    status === "Preparing"
+                                    ? "PREPARING"
+                                    : "NEW ORDER"
+                                }
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- CUSTOMER -->
+
+                        <div
+                            class="customer-details">
+
+
+                            <p>
+
+                                <strong>
+                                    Customer:
+                                </strong>
+
+                                ${
+                                    order.customerName ||
+                                    "N/A"
+                                }
+
+                            </p>
+
+
+                            <p>
+
+                                <strong>
+                                    Table:
+                                </strong>
+
+                                ${
+                                    order.tableNumber ||
+                                    "N/A"
+                                }
+
+                            </p>
+
+
+                            <p>
+
+                                <strong>
+                                    Mobile:
+                                </strong>
+
+                                ${
+                                    order.mobileNumber ||
+                                    "N/A"
+                                }
+
+                            </p>
+
+
+                        </div>
+
+
+
+                        <!-- FOOD -->
+
+                        <div
+                            class="items-title">
+
+                            🍔 Ordered Food
+
+                        </div>
+
+
+                        ${itemsHTML}
+
+
+
+                        <!-- TOTAL -->
+
+                        <div
+                            class="order-total">
+
+                            Total:
+
+                            ₹${Number(
+                                order.grandTotal || 0
+                            ).toFixed(2)}
+
+                        </div>
+
+
+
+                        <!-- ACTION -->
+
+                        ${
+                            status === "New"
+
+                            ?
+
+                            `
+
+                                <button
+                                    class="
+                                        action-btn
+                                        start-btn
+                                    "
+                                    onclick="
+                                        startPreparing(
+                                            ${realIndex}
+                                        )
+                                    ">
+
+                                    👨‍🍳 Start Preparing
+
+                                </button>
+
+                            `
+
+                            :
+
+                            `
+
+                                <button
+                                    class="
+                                        action-btn
+                                        complete-btn
+                                    "
+                                    onclick="
+                                        completeKitchenOrder(
+                                            ${realIndex}
+                                        )
+                                    ">
+
+                                    ✅ Food Completed
+
+                                </button>
+
+                            `
+                        }
+
+
+                    </div>
+
+                `;
+
+            });
+
+        }
+
+
+
+        // =========================================
+        // START PREPARING
+        // =========================================
+
+        function startPreparing(index) {
+
+
+            let orders =
+                JSON.parse(
+                    localStorage.getItem(
+                        "orders"
+                    )
+                ) || [];
+
+
+            if (!orders[index]) {
+
+                alert(
+                    "Order not found."
+                );
+
+                return;
+
+            }
+
+
+            orders[index].kitchenStatus =
+                "Preparing";
+
+
+            localStorage.setItem(
+                "orders",
+                JSON.stringify(orders)
+            );
+
+
+            loadKitchenOrders();
+
+        }
+
+
+
+        // =========================================
+        // FOOD COMPLETED
+        // =========================================
+
+        function completeKitchenOrder(index) {
+
+
+            let orders =
+                JSON.parse(
+                    localStorage.getItem(
+                        "orders"
+                    )
+                ) || [];
+
+
+            if (!orders[index]) {
+
+                alert(
+                    "Order not found."
+                );
+
+                return;
+
+            }
+
+
+            /*
+             * IMPORTANT
+             *
+             * Kitchen completion does NOT
+             * mean payment is completed.
+             *
+             * It only tells the manager:
+             *
+             * FOOD IS READY
+             */
+
+
+            orders[index].kitchenStatus =
+                "Completed";
+
+
+            orders[index].orderStatus =
+                "Food Ready";
+
+
+            localStorage.setItem(
+                "orders",
+                JSON.stringify(orders)
+            );
+
+
+            loadKitchenOrders();
+
+
+            alert(
+                "✅ Food marked as completed.\n\n" +
+                "Manager can now accept the bill."
+            );
+
+        }
+
+
+
+        // =========================================
+        // LOGOUT
+        // =========================================
+
+        function logoutKitchen() {
+
+
+            sessionStorage.removeItem(
+                "kitchenLoggedIn"
+            );
+
+
+            window.location.href =
+                "kitchen-login.html";
+
+        }
+
+
+
+        // =========================================
+        // AUTO REFRESH
+        // =========================================
+
+        loadKitchenOrders();
+
+
+        /*
+         * Refresh every 5 seconds.
+         *
+         * This is useful for your college
+         * demonstration while using the same
+         * browser/device.
+         */
+
+        setInterval(
+            loadKitchenOrders,
+            5000
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>

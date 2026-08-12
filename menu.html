@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Restaurant Menu</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+
+        <div class="container">
+
+            <a class="navbar-brand fw-bold text-warning" href="index.html">
+
+🍽 Hotel Vishal & Krushna
+
+</a>
+
+        </div>
+
+    </nav>
+
+    <!-- Customer Details -->
+
+    <section class="container mt-5">
+
+        <div class="card shadow p-4">
+
+            <h2 class="text-center text-warning mb-4">
+
+                Customer Details
+
+            </h2>
+
+            <div class="row">
+
+                <div class="col-md-4">
+
+                    <label class="form-label">
+
+Customer Name
+
+</label>
+
+                    <input type="text" id="customerName" class="form-control" placeholder="Enter Name">
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label class="form-label">
+
+Mobile Number
+
+</label>
+
+                    <input type="text" id="mobileNumber" class="form-control" placeholder="9876543210">
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label class="form-label">
+
+Table Number
+
+</label>
+
+                    <input type="text" id="tableNumber" class="form-control" readonly>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Menu -->
+
+    <section class="container mt-5">
+
+        <h2 class="text-center text-warning mb-5">
+
+            Today's Special Menu
+
+        </h2>
+
+        <div class="row">
+
+            <!-- Food 1 -->
+
+            <div class="col-lg-4 mb-4">
+
+                <div class="card shadow">
+
+                    <img src="images/panner.jpg.jpg" height="250" class="card-img-top">
+
+                    <div class="card-body">
+
+                        <h4>
+
+                            Paneer Butter Masala
+
+                        </h4>
+
+                        <p>
+
+                            Rich creamy paneer curry.
+
+                        </p>
+
+                        <h5 class="text-danger">
+
+                            ₹250
+
+                        </h5>
+
+                        <button class="btn btn-warning w-100" onclick="addToCart('Paneer Butter Masala',250)">
+
+Add To Cart
+
+</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Food 2 -->
+
+            <div class="col-lg-4 mb-4">
+
+                <div class="card shadow">
+
+                    <img src="images/biryani.jpg.jpeg" height="250" class="card-img-top">
+
+                    <div class="card-body">
+
+                        <h4>
+
+                            Chicken Biryani
+
+                        </h4>
+
+                        <p>
+
+                            Hyderabadi Dum Biryani.
+
+                        </p>
+
+                        <h5 class="text-danger">
+
+                            ₹320
+
+                        </h5>
+
+                        <button class="btn btn-warning w-100" onclick="addToCart('Chicken Biryani',320)">
+
+Add To Cart
+
+</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Food 3 -->
+
+            <div class="col-lg-4 mb-4">
+
+                <div class="card shadow">
+
+                    <img src="images/pizza.jpg.jpg" height="250" class="card-img-top">
+
+                    <div class="card-body">
+
+                        <h4>
+
+                            Cheese Pizza
+
+                        </h4>
+
+                        <p>
+
+                            Loaded with mozzarella cheese.
+
+                        </p>
+
+                        <h5 class="text-danger">
+
+                            ₹280
+
+                        </h5>
+
+                        <button class="btn btn-warning w-100" onclick="addToCart('Cheese Pizza',280)">
+
+Add To Cart
+
+</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Cart -->
+
+    <section class="container mt-5 mb-5">
+
+        <div class="card shadow">
+
+            <div class="card-body">
+
+                <h2 class="text-warning">
+
+                    🛒 Your Cart
+
+                </h2>
+
+                <div id="cartItems">
+
+                    <p>No Items Added</p>
+
+                </div>
+
+                <h3 class="mt-3">
+
+                    Total : ₹
+
+                    <span id="totalPrice">0</span>
+
+                </h3>
+
+                <button id="placeOrderBtn" class="btn btn-success btn-lg mt-3">
+
+
+Place Order
+
+</button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <script src="js/menu.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
