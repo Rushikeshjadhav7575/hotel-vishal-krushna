@@ -1,18 +1,13 @@
-/* =========================================================
-   HOTEL VISHAL & KRUSHNA
-   MAIN WEBSITE CSS
-   ========================================================= */
+/* ============================
+   Google Font
+============================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
-/* =========================
-   GLOBAL
-========================= */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 html {
@@ -20,927 +15,425 @@ html {
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background: #111111;
-    color: #ffffff;
+    background: #111;
+    color: #fff;
     overflow-x: hidden;
 }
 
-a {
-    text-decoration: none;
-}
 
-img {
-    max-width: 100%;
-    display: block;
-}
+/* ============================
+   Navbar
+============================ */
 
-::selection {
-    background: #f59e0b;
-    color: #111111;
-}
-
-
-/* =========================
-   NAVBAR
-========================= */
-
-.navbar {
-    background: rgba(0, 0, 0, 0.96) !important;
-    padding: 14px 0;
-    transition: 0.3s ease;
-    border-bottom: 1px solid rgba(245, 158, 11, 0.15);
+/* .navbar {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    transition: .4s;
 }
 
 .navbar-brand {
-    color: #f59e0b !important;
-    font-size: 21px;
-    letter-spacing: 0.3px;
-    transition: 0.3s;
-}
-
-.navbar-brand:hover {
-    color: #fbbf24 !important;
-    transform: scale(1.02);
-}
-
-.navbar-nav {
-    align-items: center;
-    gap: 4px;
+    color: #FFD700 !important;
+    font-size: 28px;
+    font-weight: 600;
 }
 
 .nav-link {
-    color: #ffffff !important;
+    color: #fff !important;
+    margin-right: 15px;
+    transition: .3s;
     font-weight: 500;
-    padding: 9px 12px !important;
-    border-radius: 7px;
-    transition: all 0.3s ease;
 }
 
 .nav-link:hover {
-    color: #f59e0b !important;
-    background: rgba(245, 158, 11, 0.08);
+    color: #FFD700 !important;
 }
-
-.nav-link.active {
-    color: #f59e0b !important;
-}
-
-.navbar .btn-warning {
-    margin-left: 8px;
-}
-
-.navbar-toggler {
-    border-color: #f59e0b !important;
-}
-
-.navbar-toggler:focus {
-    box-shadow: 0 0 0 0.2rem rgba(245, 158, 11, 0.25);
-}
-
-
-/* =========================
-   BUTTONS
-========================= */
 
 .btn-warning {
-    background: #f59e0b !important;
-    border-color: #f59e0b !important;
-    color: #111111 !important;
-    font-weight: 600;
-    border-radius: 8px;
-    transition: all 0.3s ease;
+    background: #FFD700;
+    border: none;
+    color: #000;
+    font-weight: 650;
+    transition: .3s;
 }
 
 .btn-warning:hover {
-    background: #d97706 !important;
-    border-color: #d97706 !important;
-    color: #ffffff !important;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(245, 158, 11, 0.25);
-}
-
-.btn-success {
-    font-weight: 600;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-.btn-success:hover {
-    transform: translateY(-2px);
-}
-
-.btn-danger {
-    border-radius: 8px;
-    font-weight: 600;
-}
-
-.btn-lg {
-    padding: 12px 24px;
-}
+    background: #ffbf00;
+    transform: translateY(-3px);
+} */
 
 
-/* =========================
-   HERO
-========================= */
+/* ============================
+   Hero Section
+============================ */
 
 .hero {
     min-height: 100vh;
-    padding-top: 120px;
-    padding-bottom: 70px;
-
     display: flex;
     align-items: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(0, 0, 0, 0.96),
-            rgba(25, 25, 25, 0.94)
-        );
-
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    width: 450px;
-    height: 450px;
-    background: rgba(245, 158, 11, 0.08);
-    border-radius: 50%;
-    top: -150px;
-    right: -150px;
-    filter: blur(20px);
+    background: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url("../images/hero-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    padding-top: 100px;
 }
 
 .hero h1 {
-    line-height: 1.25;
-    font-weight: 800;
+    font-size: 60px;
+    line-height: 1.3;
 }
 
 .hero p {
-    color: #d1d5db;
-    line-height: 1.8;
-    max-width: 600px;
+    color: #ddd;
+    font-size: 20px;
 }
 
 .hero-image {
-    width: 100%;
-    max-width: 560px;
-    margin: auto;
-    border-radius: 20px;
-    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
-    animation: heroFloat 4s ease-in-out infinite;
+    max-width: 100%;
+    animation: float 4s ease-in-out infinite;
 }
 
-@keyframes heroFloat {
-    0%, 100% {
+
+/* Floating Animation */
+
+@keyframes float {
+    0% {
         transform: translateY(0);
     }
-
     50% {
-        transform: translateY(-12px);
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0);
     }
 }
 
 
-/* =========================
-   SECTION
-========================= */
-
-section {
-    position: relative;
-}
+/* ============================
+   Section Title
+============================ */
 
 .section-title {
     text-align: center;
-    margin-bottom: 45px;
+    margin-bottom: 60px;
 }
 
 .section-title h2 {
-    color: #f59e0b;
-    font-size: 34px;
+    color: #FFD700;
+    font-size: 42px;
     font-weight: 700;
 }
 
 .section-title p {
-    color: #9ca3af;
-    margin-top: 8px;
+    color: #ccc;
 }
 
 
-/* =========================
-   DARK SECTIONS
-========================= */
+/* ============================
+   Responsive
+============================ */
 
-.bg-dark {
-    background: #111111 !important;
+@media(max-width:992px) {
+    .hero {
+        text-align: center;
+    }
+    .hero h1 {
+        font-size: 42px;
+    }
+    .hero p {
+        font-size: 18px;
+        margin-bottom: 25px;
+    }
+    .hero-image {
+        margin-top: 40px;
+        width: 80%;
+    }
 }
 
-.bg-black {
-    background: #000000 !important;
+@media(max-width:576px) {
+    .hero h1 {
+        font-size: 34px;
+    }
+    .navbar-brand {
+        font-size: 22px;
+    }
 }
 
 
-/* =========================
-   CARDS
-========================= */
+/* ===========================
+   Cart
+=========================== */
 
 .card {
-    background: #1b1b1b;
-    color: #ffffff;
-    border: 1px solid rgba(245, 158, 11, 0.12);
-    border-radius: 15px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35) !important;
-    border-color: rgba(245, 158, 11, 0.35);
-}
-
-.card-body {
-    padding: 22px;
-}
-
-.card h4,
-.card h3,
-.card h2 {
-    font-weight: 600;
-}
-
-.card p {
-    color: #bdbdbd;
-    line-height: 1.7;
-}
-
-
-/* =========================
-   FOOD CARDS
-========================= */
-
-.card-img-top {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.card:hover .card-img-top {
-    transform: scale(1.04);
-}
-
-.text-danger {
-    color: #ef4444 !important;
-}
-
-.text-warning {
-    color: #f59e0b !important;
-}
-
-
-/* =========================
-   ABOUT IMAGE
-========================= */
-
-.rounded {
-    border-radius: 15px !important;
-}
-
-.shadow {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
-}
-
-.about-image {
-    width: 100%;
     border-radius: 15px;
 }
-
-
-/* =========================
-   FORMS
-========================= */
-
-.form-label {
-    color: #ffffff;
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.form-control,
-.form-select {
-    background: #242424 !important;
-    color: #ffffff !important;
-    border: 1px solid #444444 !important;
-    border-radius: 8px;
-    padding: 12px 14px;
-    transition: all 0.3s ease;
-}
-
-.form-control::placeholder {
-    color: #9ca3af;
-}
-
-.form-control:focus,
-.form-select:focus {
-    background: #292929 !important;
-    color: #ffffff !important;
-    border-color: #f59e0b !important;
-    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15) !important;
-}
-
-.form-select option {
-    background: #222222;
-    color: #ffffff;
-}
-
-
-/* =========================
-   BOOKING / CONTACT / HALL
-========================= */
-
-body > section.py-5 {
-    padding-top: 120px !important;
-    min-height: 100vh;
-}
-
-body > section.py-5 > .container {
-    padding-bottom: 40px;
-}
-
-body > section.py-5 .card {
-    padding: 30px !important;
-}
-
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact-info i {
-    color: #f59e0b;
-}
-
-.contact-info p {
-    color: #cfcfcf;
-}
-
-.contact-info a {
-    color: #f59e0b;
-    transition: 0.3s;
-}
-
-.contact-info a:hover {
-    color: #fbbf24;
-}
-
-
-/* =========================
-   HALL BOOKING PRICE
-========================= */
-
-#hallPrice,
-#totalPrice,
-#grandTotal {
-    font-weight: 700;
-}
-
-.alert {
-    border-radius: 10px;
-}
-
-.alert-success {
-    background: rgba(22, 163, 74, 0.15);
-    color: #86efac;
-    border-color: rgba(22, 163, 74, 0.3);
-}
-
-.alert-warning {
-    background: rgba(245, 158, 11, 0.12);
-    color: #fbbf24;
-    border-color: rgba(245, 158, 11, 0.25);
-}
-
-
-/* =========================
-   CART
-========================= */
 
 #cartItems {
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 .cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    padding: 14px;
-    margin-bottom: 10px;
-    background: #242424;
+    background: #000000;
+    color: white;
     border-radius: 10px;
-    border: 1px solid #333333;
+    padding: 15px;
+    margin-bottom: 15px;
 }
 
-.cart-item button {
+.qty-btn {
+    width: 35px;
+    height: 35px;
     border: none;
-    border-radius: 6px;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-.quantity-btn {
-    background: #f59e0b;
-    color: #111111;
+    background: #ffc107;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
 }
 
 .remove-btn {
-    background: #dc2626;
-    color: #ffffff;
-}
-
-
-/* =========================
-   ADMIN LOGIN
-========================= */
-
-body.bg-dark {
-    background:
-        radial-gradient(
-            circle at top right,
-            rgba(245, 158, 11, 0.12),
-            transparent 35%
-        ),
-        #0b0b0b !important;
-}
-
-body.bg-dark .container .card {
-    background: #181818;
-    color: #ffffff;
-    border: 1px solid rgba(245, 158, 11, 0.2);
-}
-
-body.bg-dark .container .card p {
-    color: #aaaaaa;
-}
-
-
-/* =========================
-   ADMIN DASHBOARD
-========================= */
-
-body.bg-light {
-    background: #f3f4f6 !important;
-    color: #111827;
-}
-
-body.bg-light .navbar {
-    background: #111827 !important;
-}
-
-body.bg-light .card {
-    background: #ffffff;
-    color: #111827;
+    background: red;
+    color: white;
     border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
 }
+/* ================================
+   KITCHEN LOGIN BUTTON
+================================ */
 
-body.bg-light .card:hover {
-    transform: translateY(-3px);
-}
+.kitchen-login-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    margin-left: 10px;
 
-body.bg-light .text-muted {
-    color: #6b7280 !important;
-}
-
-
-/* =========================
-   ADMIN ORDER CARDS
-========================= */
-
-#ordersContainer,
-#tableBookingsContainer,
-#hallBookingsContainer {
-    width: 100%;
-}
-
-.order-card,
-.booking-card,
-.hall-booking-card {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 15px;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
-}
-
-.order-card:hover,
-.booking-card:hover,
-.hall-booking-card:hover {
-    transform: translateY(-2px);
-}
-
-
-/* =========================
-   BILL / ORDER CONFIRMATION
-========================= */
-
-body.bg-dark .shadow-lg {
-    border-radius: 18px;
-}
-
-body.bg-dark .shadow-lg .card-body {
-    padding: 40px !important;
-}
-
-.text-success {
-    color: #22c55e !important;
-}
-
-
-/* =========================
-   KITCHEN DASHBOARD
-========================= */
-
-.dashboard-title h2 {
-    font-weight: 700;
-    color: #111827;
-}
-
-.dashboard-title p {
-    color: #6b7280;
-}
-
-#ordersContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 20px;
-}
-
-.order-card {
-    background: #ffffff;
-    border-radius: 14px;
-    padding: 20px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-    border-left: 5px solid #f59e0b;
-}
-
-.order-card.preparing {
-    border-left-color: #2563eb;
-}
-
-.order-card.completed {
-    border-left-color: #16a34a;
-}
-
-.order-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 15px;
-}
-
-.order-id {
-    font-size: 20px;
-    font-weight: 700;
-    color: #111827;
-}
-
-.status {
-    padding: 6px 11px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 700;
-}
-
-.status.new {
-    background: #fef3c7;
-    color: #92400e;
-}
-
-.status.preparing {
-    background: #dbeafe;
-    color: #1d4ed8;
-}
-
-.status.completed {
-    background: #dcfce7;
-    color: #166534;
-}
-
-.customer-details {
-    background: #f9fafb;
-    padding: 13px;
-    border-radius: 9px;
-    margin-bottom: 15px;
-    color: #374151;
-}
-
-.customer-details p {
-    margin-bottom: 6px;
-}
-
-.customer-details p:last-child {
-    margin-bottom: 0;
-}
-
-.items-title {
-    font-weight: 700;
-    color: #111827;
-    margin-bottom: 8px;
-}
-
-.food-item {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 9px 0;
-    border-bottom: 1px solid #e5e7eb;
-}
-
-.food-item:last-child {
-    border-bottom: none;
-}
-
-.food-name {
-    font-weight: 600;
-    color: #374151;
-}
-
-.food-quantity {
-    font-weight: 700;
-    color: #d97706;
-}
-
-.order-total {
-    text-align: right;
-    margin-top: 15px;
-    font-size: 18px;
-    font-weight: 700;
-    color: #111827;
-}
-
-.action-btn {
-    width: 100%;
-    border: none;
-    padding: 13px;
-    border-radius: 8px;
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 700;
-    cursor: pointer;
-    margin-top: 15px;
-    transition: 0.3s;
-}
-
-.start-btn {
-    background: #2563eb;
-}
-
-.start-btn:hover {
-    background: #1d4ed8;
-    transform: translateY(-2px);
-}
-
-.complete-btn {
-    background: #16a34a;
-}
-
-.complete-btn:hover {
-    background: #15803d;
-    transform: translateY(-2px);
-}
-
-.completed-message {
-    margin-top: 15px;
-    text-align: center;
-    padding: 10px;
-    background: #dcfce7;
-    color: #166534;
-    border-radius: 8px;
-    font-weight: 600;
-}
-
-
-/* =========================
-   KITCHEN LOGIN
-========================= */
-
-.login-box {
-    width: 90%;
-    max-width: 430px;
-    padding: 35px;
-    background: #ffffff;
-    border-radius: 18px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-}
-
-.login-box .logo {
-    text-align: center;
-    font-size: 55px;
-    margin-bottom: 10px;
-}
-
-.login-box h1 {
-    text-align: center;
-    color: #111827;
-    font-weight: 700;
-}
-
-.login-box .subtitle {
-    text-align: center;
-    color: #6b7280;
-    margin-bottom: 30px;
-}
-
-.login-box label {
-    display: block;
-    margin-bottom: 7px;
-    font-weight: 600;
-    color: #374151;
-}
-
-.login-box input {
-    width: 100%;
-    padding: 13px;
-    margin-bottom: 20px;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    font-size: 16px;
-}
-
-.login-box input:focus {
-    outline: none;
-    border-color: #f59e0b;
-    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
-}
-
-.login-box button {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 8px;
     background: #f59e0b;
     color: #ffffff;
-    font-size: 17px;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
     font-weight: 700;
-    cursor: pointer;
-    transition: 0.3s;
+
+    transition: 0.3s ease;
 }
 
-.login-box button:hover {
+.kitchen-login-btn:hover {
     background: #d97706;
+    color: #ffffff;
+
+    transform: translateY(-2px);
 }
 
-.back-home {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-    color: #374151;
+/* =====================================================
+   NAVBAR
+   Hotel Vishal & Krushna
+   ===================================================== */
+
+.navbar {
+    background: rgba(10, 10, 10, 0.96) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 193, 7, 0.25);
+
+    transition: all 0.3s ease;
+    z-index: 9999;
 }
 
-.back-home:hover {
-    color: #d97706;
+/* Container */
+.navbar .container {
+    display: flex;
+    align-items: center;
 }
 
+/* ================= BRAND ================= */
 
-/* =========================
-   FOOTER
-========================= */
+.navbar-brand {
+    color: #ffc107 !important;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 
-footer {
-    background: #000000;
-    color: #aaaaaa;
-    padding: 35px 0;
-    text-align: center;
+    transition: 0.3s ease;
 }
 
-footer a {
-    color: #f59e0b;
+.navbar-brand:hover {
+    color: #ffffff !important;
+    transform: scale(1.03);
 }
 
-footer a:hover {
-    color: #fbbf24;
+/* ================= NAV LINKS ================= */
+
+.navbar-nav {
+    align-items: center;
+    gap: 5px;
 }
 
+.navbar .nav-link {
+    position: relative;
 
-/* =========================
-   RESPONSIVE
-========================= */
+    color: #ffffff !important;
+    font-size: 0.95rem;
+    font-weight: 500;
+
+    padding: 10px 14px !important;
+
+    transition: color 0.3s ease;
+}
+
+/* Underline animation */
+.navbar .nav-link::after {
+    content: "";
+
+    position: absolute;
+    left: 50%;
+    bottom: 3px;
+
+    width: 0;
+    height: 2px;
+
+    background: #ffc107;
+    border-radius: 10px;
+
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+    color: #ffc107 !important;
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after {
+    width: 70%;
+}
+
+/* Active link */
+.navbar .nav-link.active {
+    color: #ffc107 !important;
+}
+
+/* ================= KITCHEN / ADMIN ================= */
+
+.navbar .nav-link.text-warning {
+    color: #ffc107 !important;
+}
+
+.navbar .nav-link.text-warning:hover {
+    color: #ffffff !important;
+}
+
+/* Icons */
+.navbar .nav-link i {
+    margin-right: 4px;
+    font-size: 0.9rem;
+}
+
+/* ================= ORDER NOW ================= */
+
+.navbar .btn-warning {
+    background: #ffc107;
+    color: #111 !important;
+
+    border: 2px solid #ffc107;
+    border-radius: 25px;
+
+    padding: 9px 20px !important;
+
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.25);
+
+    transition: all 0.3s ease;
+}
+
+.navbar .btn-warning:hover {
+    background: transparent;
+    color: #ffc107 !important;
+
+    border-color: #ffc107;
+
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.35);
+}
+
+/* ================= TOGGLE BUTTON ================= */
+
+.navbar-toggler {
+    border: 1px solid rgba(255, 193, 7, 0.7) !important;
+    padding: 7px 10px;
+
+    border-radius: 8px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.2);
+}
+
+.navbar-toggler-icon {
+    filter: brightness(0) saturate(100%)
+            invert(76%) sepia(95%)
+            saturate(1000%) hue-rotate(5deg);
+}
+
+/* ================= MOBILE ================= */
 
 @media (max-width: 991px) {
 
-    .navbar-nav {
-        align-items: stretch;
-        margin-top: 15px;
+    .navbar {
+        padding: 10px 0;
     }
 
-    .nav-link {
-        padding: 10px 15px !important;
+    .navbar-brand {
+        font-size: 1.15rem;
+    }
+
+    .navbar-collapse {
+        margin-top: 15px;
+
+        padding: 15px;
+
+        background: rgba(15, 15, 15, 0.98);
+
+        border-radius: 12px;
+        border: 1px solid rgba(255, 193, 7, 0.15);
+
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .navbar-nav {
+        align-items: stretch;
+        gap: 2px;
+    }
+
+    .navbar .nav-link {
+        padding: 12px 15px !important;
+        border-radius: 8px;
+    }
+
+    .navbar .nav-link:hover {
+        background: rgba(255, 193, 7, 0.08);
+    }
+
+    .navbar .nav-link::after {
+        display: none;
     }
 
     .navbar .btn-warning {
-        margin: 10px 0 0 0;
         display: block;
         text-align: center;
-    }
-
-    .hero {
-        padding-top: 130px;
-        text-align: center;
-    }
-
-    .hero p {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .hero-image {
-        margin-top: 40px;
-        max-width: 450px;
+        margin: 10px 0 5px !important;
     }
 }
 
+/* ================= SMALL MOBILE ================= */
 
-@media (max-width: 768px) {
-
-    .hero h1 {
-        font-size: 38px;
-    }
-
-    .section-title h2 {
-        font-size: 28px;
-    }
-
-    body > section.py-5 {
-        padding-top: 100px !important;
-    }
-
-    .card-body {
-        padding: 18px;
-    }
-
-    .card-img-top {
-        height: 220px;
-    }
-
-    .login-box {
-        padding: 25px;
-    }
-
-    #ordersContainer {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-@media (max-width: 576px) {
+@media (max-width: 480px) {
 
     .navbar-brand {
-        font-size: 17px;
+        font-size: 1rem;
     }
 
-    .hero {
-        padding-top: 110px;
-    }
-
-    .hero h1 {
-        font-size: 31px;
-    }
-
-    .hero p {
-        font-size: 15px;
-    }
-
-    .section-title h2 {
-        font-size: 25px;
-    }
-
-    .btn-lg {
-        width: 100%;
-    }
-
-    body > section.py-5 .card {
-        padding: 20px !important;
-    }
-
-    .login-box {
-        width: 94%;
-        padding: 22px;
-    }
-
-    .order-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .cart-item {
-        flex-direction: column;
-        align-items: flex-start;
+    .navbar-toggler {
+        padding: 5px 8px;
     }
 }
